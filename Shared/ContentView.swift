@@ -16,7 +16,7 @@ struct ContentView: View {
             .ignoresSafeArea()
             
             VStack{//ÜBERSCHRIFT
-                Text("Willkommen bei deinem Trainings Couch")
+                Text("ContentView")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
