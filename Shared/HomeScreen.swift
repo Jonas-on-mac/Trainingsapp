@@ -15,13 +15,15 @@ struct HomeScreen: View {
             .ignoresSafeArea()
             
             VStack{//ÜBERSCHRIFT
-                Text("EINSTELLUNGEN")
+                Text("Willkommen bei deinem Trainings Couch")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     
-
+                Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Button")/*@END_MENU_TOKEN@*/
+                }
                 
             }
 
