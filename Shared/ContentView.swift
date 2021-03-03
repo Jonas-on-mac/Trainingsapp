@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-    
-        ZStack {//HINTERGRUND
+      ZStack {//HINTERGRUND
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
             ]), startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
@@ -25,6 +24,12 @@ struct ContentView: View {
 
                 
             }
+            
+            
+                NavigationLink(destination: HomeScreen()) {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/
+                }
+            
 
 
                 
@@ -32,7 +37,7 @@ struct ContentView: View {
             
         }
     }
-}
+    }
 
 
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     var body: some View {
+        NavigationView{
         ZStack {//HINTERGRUND
             LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
             ]), startPoint: .top, endPoint: .bottom)
@@ -21,13 +22,14 @@ struct HomeScreen: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     
-                Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Button")/*@END_MENU_TOKEN@*/
-                }
                 
             }
-
-
+            
+                NavigationLink(destination: ContentView()) {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/
+                }}
+            
+            
                 
                 
             
