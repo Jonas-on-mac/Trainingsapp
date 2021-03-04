@@ -24,7 +24,8 @@ struct ChangeTraining: View {
            
             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Stepper(value: $steppervalue, in: 0...15) {
-                Text("Add\(steppervalue > 0 ? "Übung ": " ")")
+                Text("+Add\(steppervalue > 0 ? "Übung ": " ")")
+                    .font(.subheadline)
                 
                 
             }
