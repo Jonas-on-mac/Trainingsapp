@@ -19,17 +19,22 @@ struct HomeScreen: View {
                 ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-                    VStack{ //ÜBERSCHRIFT
+                    VStack{
+                        
+                    //Start ÜBERSCHRIFT
                         Text("Willkommen bei deinem Trainings Coach")
                             .font(.largeTitle)
                             .fontWeight(.heavy)
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
-                        
+                
                         Spacer()
                             .frame(width: 1.0, height: 125.0)
                         
-                        //Button der den Contentview aufruft
+                    //Start ÜBERSCHRIFT
+                        
+                        
+                    //Start Button Start Training
                         Button("Start your Training"){
                             self.showContentView.toggle()
                             }
@@ -37,8 +42,9 @@ struct HomeScreen: View {
                         .colorInvert()
                         Spacer()
                         .frame(width: 1.0, height: 20.0)
-
+                    //Ende Button Start Training
                         
+                    //Start Button ChangeTraining
                         Button("Training Ändern"){
                             self.showContentView.toggle()
                             }
@@ -46,26 +52,15 @@ struct HomeScreen: View {
                         .colorInvert()
                         Spacer()
                         .frame(width: 1.0, height: 20.0)
-                     
+                    //Ende Button ChangeTraining
+                    
+                    //Start Button Settings
                         Button("Einstellung"){
                             self.showContentView.toggle()
-
                         }
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .colorInvert()
-                        
-            
-                        //Link und Button zum anderen Fenster
-                        /*NavigationLink(destination: ContentView()) {
-                            Text("Start your Training")
-                                .frame(minWidth: 0, maxWidth: 300)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background((LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing)))
-                                .cornerRadius(40)
-                                .font(.title)
-                        
-                        }*/
+                    //Ende Button Settings
                 
                     }
                     .sheet(isPresented: $showContentView, content: {ContentView() }) //ContentView wird präsentiert -> Ausführung
