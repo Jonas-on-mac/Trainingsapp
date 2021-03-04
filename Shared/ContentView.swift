@@ -8,36 +8,48 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
-      ZStack {//HINTERGRUND
-            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
-            ]), startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+        
+        NavigationView{
+        
+            ZStack {  //HINTERGRUND
+                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
+                ]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             
-            VStack{//ÜBERSCHRIFT
-                Text("ContentView")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                    
+                
+                VStack{ //ÜBERSCHRIFT
+                    Text("ContentView")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+    
+            
+                /*//Link und Button zum Homescreen
+                    NavigationLink(destination: HomeScreen()) {
+                        Text("zurück zum Hauptmenü")
+                            .frame(minWidth: 0, maxWidth: 200)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background((LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing)))
+                            .cornerRadius(40)
+                            .font(.subheadline)
+                
+                    }*/
+            
 
+
+                }
                 
             }
             
-            
-                NavigationLink(destination: HomeScreen()) {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label Content@*/Text("Navigate")/*@END_MENU_TOKEN@*/
-                }
-            
-
-
-                
-                
-            
         }
+            
     }
-    }
+}
 
 
 
