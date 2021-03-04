@@ -26,11 +26,34 @@ struct HomeScreen: View {
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
                         
+                        Spacer()
+                            .frame(width: 1.0, height: 125.0)
+                        
                         //Button der den Contentview aufruft
                         Button("Start your Training"){
                             self.showContentView.toggle()
-                            
+                            }
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .colorInvert()
+                        Spacer()
+                        .frame(width: 1.0, height: 20.0)
+
+                        
+                        Button("Training Ändern"){
+                            self.showContentView.toggle()
+                            }
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .colorInvert()
+                        Spacer()
+                        .frame(width: 1.0, height: 20.0)
+                     
+                        Button("Einstellung"){
+                            self.showContentView.toggle()
+
                         }
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .colorInvert()
+                        
             
                         //Link und Button zum anderen Fenster
                         /*NavigationLink(destination: ContentView()) {

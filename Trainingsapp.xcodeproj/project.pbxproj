@@ -15,8 +15,8 @@
 		394B317225F01DEE00567C79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394B314725F01DEE00567C79 /* ContentView.swift */; };
 		394B317325F01DEE00567C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394B314825F01DEE00567C79 /* Assets.xcassets */; };
 		394B317425F01DEE00567C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394B314825F01DEE00567C79 /* Assets.xcassets */; };
-		DB8B4ED425F03DCF0073ADE4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4ED325F03DCF0073ADE4 /* HomeScreen.swift */; };
 		DB8B4ED525F03DCF0073ADE4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4ED325F03DCF0073ADE4 /* HomeScreen.swift */; };
+		DB8B4F2425F049600073ADE4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4ED325F03DCF0073ADE4 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,7 +314,7 @@
 			files = (
 				394B317125F01DEE00567C79 /* ContentView.swift in Sources */,
 				394B316F25F01DEE00567C79 /* TrainingsappApp.swift in Sources */,
-				DB8B4ED425F03DCF0073ADE4 /* HomeScreen.swift in Sources */,
+				DB8B4F2425F049600073ADE4 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
