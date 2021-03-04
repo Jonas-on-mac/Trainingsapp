@@ -25,8 +25,12 @@ struct ChangeTraining: View {
             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             Stepper(value: $steppervalue, in: 0...15) {
                 Text("+Add\(steppervalue > 0 ? "Übung ": " ")")
+                    
                     .font(.subheadline)
-                
+                    .fontWeight(.thin)
+                    .padding()
+                    .foregroundColor(.black)
+                    .frame(width: 300, height: 30, alignment: .leading)
                 
             }
             
@@ -38,7 +42,7 @@ struct choosesport: View {
     var body: some View{
         
       Text("")
-        
+       
         
     }
 }
