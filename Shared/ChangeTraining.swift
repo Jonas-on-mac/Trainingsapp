@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ChangeTraining: View {
-    @State private var steppervalue = 0
     
+    @State var name: String = ""
     
     var body: some View {
         
@@ -19,21 +19,15 @@ struct ChangeTraining: View {
             ]), startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
           
+            VStack{
             
-            
-           
-            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-            Stepper(value: $steppervalue, in: 0...15) {
-                Text("+Add\(steppervalue > 0 ? "Übung ": " ")")
-                    
-                    .font(.subheadline)
-                    .fontWeight(.thin)
-                    .padding()
-                    .foregroundColor(.black)
-                    .frame(width: 300, height: 30, alignment: .leading)
+                Text("Übungen")
+                TextField("name", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-            }
-            
+                
+                
+                }.padding()
         }
     }
 }
