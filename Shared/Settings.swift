@@ -24,23 +24,31 @@ struct Settings: View {
                 
             
             
-            VStack{
+            VStack(alignment: .center, spacing: 20.0){
                 Text("Settings")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     .lineLimit(nil)
-                    .menuStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Menu Style@*/DefaultMenuStyle()/*@END_MENU_TOKEN@*/)
+                    
                 
                 
                 
                 HStack {
                     Text("Benachrichtigungen")
+                        .font(.callout)
+                        .fontWeight(.thin)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .frame(width: 200.0)
                     Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
                         
                     }
-                }
+
+                    
+                    
+                }.padding(.horizontal, 75.0)
 
                 
 
@@ -48,11 +56,20 @@ struct Settings: View {
 
 
                 HStack {
-                    Text("Settings")
+                    Text("Sound")
+                        .font(.callout)
+                        .fontWeight(.thin)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.leading)
+                        .frame(width: 200.0)
+
                     Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
                         
                     }
+                    
+                    
                 }
+                .padding(.horizontal, 75.0)
             
                 HStack {
 
@@ -68,6 +85,7 @@ struct Settings: View {
             
             
             }
+            .listStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=List Style@*/DefaultListStyle()/*@END_MENU_TOKEN@*/)
             
             
             
