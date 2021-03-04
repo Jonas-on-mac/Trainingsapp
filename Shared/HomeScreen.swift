@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @State var showContentView = false //Variable für den View Button
+
     
     var body: some View {
         
@@ -64,6 +65,7 @@ struct HomeScreen: View {
                 
                     }
                     .sheet(isPresented: $showContentView, content: {ContentView() }) //ContentView wird präsentiert -> Ausführung
+
             }
         }
     }
