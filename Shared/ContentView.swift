@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+
 struct ContentView: View {
     
     @State var checkbox = false
@@ -15,12 +16,12 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView{
-        
+            
             ZStack {  //HINTERGRUND
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
                 ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            
+                
                 
                 VStack{ //ÜBERSCHRIFT
                     Text("ContentView")
@@ -28,24 +29,32 @@ struct ContentView: View {
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-            
-                    Button("plus") {
-                        self.checkbox.toggle()
+                    
+                    HStack{
                         
-                      
-                    }
                     
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
+                        
+                        Button(action: {
+                            self.checkbox.toggle()
+                        }) {
+                            
+                            Image(systemName: "cloud.sun.fill")
+                                .renderingMode(.original)
+                                .padding()
+                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                            
+                        }
+                        
+                        if(checkbox == true){
+                            Image(systemName: "plus")
+                            
+                            
+                        }
+                    }//Ende HStack
                     
-                    
-                }
+                }//Ende ZStack
                 
                 
-            }//Ende ZStack
-            
-            if(checkbox == true){
-                Image(systemName: "plus")
             }
             
         }
