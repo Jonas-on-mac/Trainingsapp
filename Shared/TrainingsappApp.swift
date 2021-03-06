@@ -11,7 +11,7 @@ import SwiftUI
 struct TrainingsappApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            ChangeTraining()
             //ContentView()
         }
     }

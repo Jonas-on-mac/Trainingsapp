@@ -26,19 +26,6 @@ struct ContentView: View {
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-    
-            
-                /*//Link und Button zum Homescreen
-                    NavigationLink(destination: HomeScreen()) {
-                        Text("zurück zum Hauptmenü")
-                            .frame(minWidth: 0, maxWidth: 200)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background((LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing)))
-                            .cornerRadius(40)
-                            .font(.subheadline)
-                
-                    }*/
             
 
 

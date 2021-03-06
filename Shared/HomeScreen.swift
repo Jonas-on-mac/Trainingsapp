@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @State var showContentView = false //Variable für den View Button
-
+    @State var showChangeTraining = false //Variable für den View Button
+    
     
     var body: some View {
         
@@ -37,7 +37,7 @@ struct HomeScreen: View {
                         
                     //Start Button Start Training
                         Button("Start your Training"){
-                            self.showContentView.toggle()
+                            self.showChangeTraining.toggle()
                             }
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .colorInvert()
@@ -47,7 +47,7 @@ struct HomeScreen: View {
                         
                     //Start Button ChangeTraining
                         Button("Training Ändern"){
-                            self.showContentView.toggle()
+                            self.showChangeTraining.toggle()
                             }
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .colorInvert()
@@ -57,15 +57,16 @@ struct HomeScreen: View {
                     
                     //Start Button Settings
                         Button("Einstellung"){
-                            self.showContentView.toggle()
+                            self.showChangeTraining.toggle()
                         }
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .colorInvert()
                     //Ende Button Settings
                 
                     }
-                    .sheet(isPresented: $showContentView, content: {ContentView() }) //ContentView wird präsentiert -> Ausführung
-
+                    .sheet(isPresented: $showChangeTraining, content: {ChangeTraining() }) //ContentView wird präsentiert -> Ausführung
+                    
+                   
             }
         }
     }
