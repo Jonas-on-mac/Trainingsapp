@@ -32,7 +32,8 @@ struct Settings: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(nil)
                     
-                
+                Spacer()
+                    .frame(width: 180, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 
                 HStack {
@@ -89,13 +90,13 @@ struct Settings: View {
             
             
             
-            
+        
         }
         
         
         //Ende ZStack
     
-        
+       
     }
 }
 

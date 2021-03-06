@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     
+    @State var checkbox = false
     
     var body: some View {
         
@@ -27,15 +29,30 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
             
-
-
+                    Button("plus") {
+                        self.checkbox.toggle()
+                        
+                      
+                    }
+                    
+                    Image(systemName: "cloud.sun.fill")
+                        .renderingMode(.original)
+                    
+                    
                 }
                 
+                
+            }//Ende ZStack
+            
+            if(checkbox == true){
+                Image(systemName: "plus")
             }
             
         }
+        
             
     }
+    
 }
 
 

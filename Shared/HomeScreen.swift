@@ -6,6 +6,25 @@
 //
 
 import SwiftUI
+import UIKit
+
+
+class Save : UIViewController{
+    
+    @IBOutlet weak var text: UITextField!;
+    @IBOutlet weak var Ibl: UILabel!;
+    
+    override func viewDidLoad(){
+        if let saveText = UserDefaults.standard.object(forKey:"saveText")as? String{
+            Ibl.text = saveText
+        }
+    }
+    @IBAction func saveText(_sender:Any){
+        UserDefaults.standard.set(text.text, forKey: "saveText")
+    }
+}
+
+
 
 struct HomeScreen: View {
     @State var showChangeTraining = false //Variable für den View Button
