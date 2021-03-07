@@ -32,7 +32,7 @@ struct HomeScreen: View {
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                     Spacer()
-                        .frame(width: 125, height: 125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 125, height: 125, alignment: .center)
                     
                     start()
                     

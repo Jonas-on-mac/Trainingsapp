@@ -7,13 +7,14 @@
 
 import SwiftUI
 import UIKit
-
+import Combine
 
 
 
 
 struct ChangeTraining: View{
     
+    static let instance = ChangeTraining()// Zugriff von anderen Klassen
     @State private var newtraining = ""
     @State private var alltraining: [Training] = []
     @State private var newrepeat = ""
@@ -52,11 +53,11 @@ struct ChangeTraining: View{
                         //funktion des plusbuttons
                         Button(action:  {
                             guard !self.newtraining.isEmpty else {return}
-                            self.alltraining.append(Training(train: self.newtraining, rep: self.newrepeat))
+                            self.alltraining.append(Training(train: self.newtraining, rep: self.newrepeat, count: self.Anzahl))
                             
                             self.newrepeat = ""
                             self.newtraining = ""
-                            self.anzahl()
+                            self.anzahl()//Funktion
                             self.savetraining()//aufruf save func
                             
                         })  {
@@ -99,7 +100,7 @@ struct ChangeTraining: View{
     }
     
     private func anzahl(){
-        Anzahl = Anzahl+1
+       Anzahl=Anzahl+1
     }
     
     
@@ -118,10 +119,12 @@ struct ChangeTraining: View{
     
     private func deletetraining(at offsets: IndexSet) {
         self.alltraining.remove(atOffsets: offsets)
-        Anzahl = Anzahl-1
         savetraining()
+        Anzahl = Anzahl-1 // Hintergrund Variable (-1)
     }
 }
+
+
 
 struct Training: Codable, Identifiable {
     
@@ -130,6 +133,8 @@ struct Training: Codable, Identifiable {
     let train: String
     
     let rep: String
+    
+    let count: Int
     
 }
 

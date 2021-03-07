@@ -7,12 +7,13 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 
-
-struct ContentView: View {
+struct ContentView: View{
     
-    @State var count: Int = 0
+    
+     var count: Int = 0
     @State var abc = 4
    
     
@@ -41,7 +42,7 @@ struct ContentView: View {
                     check()
                     
                     
-                    
+                    Text("\(ChangeTraining.instance.Anzahl)")
                     
                     
                 }//Ende VStack
@@ -50,10 +51,7 @@ struct ContentView: View {
             
         
     }
-    private func Anzahl(){
-       
-        
-    }
+    
 }
 
 
@@ -78,7 +76,7 @@ struct check : View{
                 .imageScale(checkbox ? .large : .small)
                 .foregroundColor(.black)
                 .padding()
-            Text("\(checked)")
+            //Text("\(checked)")
         }
         .animation(.easeInOut)
         .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
