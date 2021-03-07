@@ -31,27 +31,19 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                     
                     
-                      // aufruf der check funktion
+                    // aufruf der check funktion
                     check()
                     check()
                     check()
-                            
+                    
                     // abfrage für das erledigen aller Übungen
-                        
-                            
-                        
-                        
+                    
+                    
                     
                 }//Ende VStack
-                
-                
             }//Ende ZStack
-            
         }
-        
-            
     }
-    
 }
 
 
@@ -67,7 +59,7 @@ struct check : View{
             
             self.checkbox.toggle()
         })
-            {
+        {
             //tru oder false steuert das Ändern des Images
             Image(systemName: checkbox ? "checkmark.square.fill" : "square")
                 .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -77,10 +69,10 @@ struct check : View{
             
             
             
-            }
-            .animation(.easeInOut)
-            .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
-            
+        }
+        .animation(.easeInOut)
+        .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
+        
         if(checkbox == true){
             //count auf 1 setzen
         }
@@ -95,7 +87,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-        
+            
         }
     }
 }
