@@ -8,26 +8,10 @@
 import SwiftUI
 import UIKit
 
-
-class Save : UIViewController{
     
-    @IBOutlet weak var text: UITextField!;
-    @IBOutlet weak var Ibl: UILabel!;
-    
-    override func viewDidLoad(){
-        if let saveText = UserDefaults.standard.object(forKey:"saveText")as? String{
-            Ibl.text = saveText
-        }
-    }
-    @IBAction func saveText(_sender:Any){
-        UserDefaults.standard.set(text.text, forKey: "saveText")
-    }
-}
-
 
 
 struct HomeScreen: View {
-    @State var showChangeTraining = false //Variable für den View Button
     
     
     var body: some View {
@@ -47,49 +31,92 @@ struct HomeScreen: View {
                             .fontWeight(.heavy)
                             .foregroundColor(Color.white)
                             .multilineTextAlignment(.center)
-                
-                        Spacer()
-                            .frame(width: 1.0, height: 125.0)
+                Spacer()
+                    .frame(width: 125, height: 125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
-                    //Start ÜBERSCHRIFT
+                        start()
                         
+                        change()
                         
-                    //Start Button Start Training
-                        Button("Start your Training"){
-                            self.showChangeTraining.toggle()
-                            }
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .colorInvert()
-                        Spacer()
-                        .frame(width: 1.0, height: 20.0)
-                    //Ende Button Start Training
-                        
-                    //Start Button ChangeTraining
-                        Button("Training Ändern"){
-                            self.showChangeTraining.toggle()
-                            }
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .colorInvert()
-                        Spacer()
-                        .frame(width: 1.0, height: 20.0)
-                    //Ende Button ChangeTraining
-                    
-                    //Start Button Settings
-                        Button("Einstellung"){
-                            self.showChangeTraining.toggle()
-                        }
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .colorInvert()
-                    //Ende Button Settings
-                
+                        settings()
                     }
-                    .sheet(isPresented: $showChangeTraining, content: {ChangeTraining() }) //ContentView wird präsentiert -> Ausführung
-                    
-                   
             }
         }
     }
 }
+
+// Struct für den Button Start
+struct start : View{
+    
+    @State var start = false
+    
+    var body: some View{
+        VStack{
+            //Start Button Start Training
+            Button("Start your Training"){
+                self.start.toggle()
+            }
+            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            .colorInvert()
+            Spacer()
+                .frame(width: 1.0, height: 20.0)
+            //Ende Button Start Training
+        }
+        .sheet(isPresented: $start, content: {(ContentView() )})
+   
+        
+    }
+}
+
+// Struct für den Button change training
+struct change : View{
+    
+    @State var change = false
+    
+    var body: some View{
+        VStack{
+            //Start Button Start Training
+            Button("change training"){
+                self.change.toggle()
+            }
+            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            .colorInvert()
+            Spacer()
+                .frame(width: 1.0, height: 20.0)
+            //Ende Button Start Training
+        }
+        .sheet(isPresented: $change, content: {(ChangeTraining() )})
+   
+        
+    }
+}
+
+//Struct für die Einstellungen
+struct settings : View{
+    
+    @State var settings = false
+    
+    var body: some View{
+        VStack{
+            //Start Button Start Training
+            Button("Settings"){
+                self.settings.toggle()
+            }
+            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            .colorInvert()
+            Spacer()
+                .frame(width: 1.0, height: 20.0)
+            //Ende Button Start Training
+        }
+        .sheet(isPresented: $settings, content: {(Settings() )})
+   
+        
+    }
+}
+
+
+
+
 
 //Vorschau
 struct HomeScreen_Previews: PreviewProvider {
