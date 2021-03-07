@@ -11,7 +11,7 @@ import UIKit
 
 struct ContentView: View {
     
-    @State var checkbox = false
+    
     
     var body: some View {
         
@@ -24,38 +24,28 @@ struct ContentView: View {
                 
                 
                 VStack{ //ÜBERSCHRIFT
-                    Text("ContentView")
+                    Text("Training")
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
                     
-                    HStack{
+                    
+                      // aufruf der check funktion
+                    check()
+                    check()
+                    check()
+                            
+                    // abfrage für das erledigen aller Übungen
+                        
+                            
+                        
                         
                     
-                        
-                        Button(action: {
-                            self.checkbox.toggle()
-                        }) {
-                            
-                            Image(systemName: "cloud.sun.fill")
-                                .renderingMode(.original)
-                                .padding()
-                                .frame(width: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                            
-                        }
-                        
-                        if(checkbox == true){
-                            Image(systemName: "plus")
-                            
-                            
-                        }
-                    }//Ende HStack
-                    
-                }//Ende ZStack
+                }//Ende VStack
                 
                 
-            }
+            }//Ende ZStack
             
         }
         
@@ -65,6 +55,38 @@ struct ContentView: View {
 }
 
 
+// Button Funktion für das erledigen einer Übung
+struct check : View{
+    
+    @State var checkbox = false
+    @State public var count = 0
+    
+    var body: some View{
+        // Button setzt checkbox auf true oder false
+        Button(action: {
+            
+            self.checkbox.toggle()
+        })
+            {
+            //tru oder false steuert das Ändern des Images
+            Image(systemName: checkbox ? "checkmark.square.fill" : "square")
+                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .imageScale(checkbox ? .large : .small)
+                .foregroundColor(.black)
+                .padding()
+            
+            
+            
+            }
+            .animation(.easeInOut)
+            .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
+            
+        if(checkbox == true){
+            //count auf 1 setzen
+        }
+    }
+    
+}
 
 
 

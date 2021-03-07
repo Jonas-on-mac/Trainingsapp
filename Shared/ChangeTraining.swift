@@ -70,24 +70,28 @@ struct ChangeTraining: View{
                     }.padding()
                     
                     //Liste die die übungen darstellt
-                    HStack{
-                        List {
-                            ForEach(alltraining) {Training in
-                                Text(Training.train)
+                    ZStack{
+                        HStack{
+                            List {
+                                ForEach(alltraining) {Training in
+                                    Text(Training.train)
+                                    
+                                }
                                 
                             }
                             
-                        }
-                        
-                        // Liste für wiederholungen
-                        List {
-                            ForEach(alltraining) {Training in
-                                Text(Training.rep)
+                            // Liste für wiederholungen
+                            List {
+                                ForEach(alltraining) {Training in
+                                    Text(Training.rep)
+                                    
+                                }.onDelete(perform: deletetraining)
                                 
-                            }.onDelete(perform: deletetraining)
+                                
+                            }
+                           
                             
                         }
-                        
                     }
                     
                 }
