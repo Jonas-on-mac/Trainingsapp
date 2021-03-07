@@ -17,7 +17,7 @@ struct ChangeTraining: View{
     @State private var newtraining = ""
     @State private var alltraining: [Training] = []
     @State private var newrepeat = ""
-    
+    @State var Anzahl = 0 // variable im Hintergrund (anzahl aktiver Übungen)
     
     var body: some View{
         
@@ -37,7 +37,7 @@ struct ChangeTraining: View{
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-                       
+                    
                     
                     HStack{
                         
@@ -53,10 +53,11 @@ struct ChangeTraining: View{
                         Button(action:  {
                             guard !self.newtraining.isEmpty else {return}
                             self.alltraining.append(Training(train: self.newtraining, rep: self.newrepeat))
-                             
+                            
                             self.newrepeat = ""
                             self.newtraining = ""
-                            self.savetraining()
+                            self.anzahl()
+                            self.savetraining()//aufruf save func
                             
                         })  {
                             //dratsellung des pluss Buttons
@@ -64,9 +65,6 @@ struct ChangeTraining: View{
                                 .foregroundColor(.black)
                             
                         }
-                        
-                        
-                        
                     }.padding()
                     
                     //Liste die die übungen darstellt
@@ -77,30 +75,31 @@ struct ChangeTraining: View{
                                     Text(Training.train)
                                     
                                 }
-                                
                             }
                             
                             // Liste für wiederholungen
                             List {
                                 ForEach(alltraining) {Training in
                                     Text(Training.rep)
+                                    Text("\(Anzahl)")
                                     
-                                }.onDelete(perform: deletetraining)
+                                }.onDelete(perform: deletetraining) // aufruf delete func
                                 
                                 
                             }
-                           
-                            
                         }
                     }
-                    
                 }
             }
-          
             
             
-        //Beim aufruf der app werden die training geladen (aufruf der loadtraining funktion)
+            
+            //Beim aufruf der app werden die training geladen (aufruf der loadtraining funktion)
         }.onAppear(perform: loadtraining)
+    }
+    
+    private func anzahl(){
+        Anzahl = Anzahl+1
     }
     
     
@@ -119,6 +118,7 @@ struct ChangeTraining: View{
     
     private func deletetraining(at offsets: IndexSet) {
         self.alltraining.remove(atOffsets: offsets)
+        Anzahl = Anzahl-1
         savetraining()
     }
 }
@@ -130,9 +130,8 @@ struct Training: Codable, Identifiable {
     let train: String
     
     let rep: String
-        
+    
 }
-
 
 
 //Vorschau

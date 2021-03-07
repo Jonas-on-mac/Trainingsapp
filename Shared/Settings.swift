@@ -17,11 +17,11 @@ struct Settings: View {
             ]), startPoint: .top, endPoint: .bottom)
             .ignoresSafeArea()
             
-
-                
-
-                
-                
+            
+            
+            
+            
+            
             
             
             VStack(alignment: .center, spacing: 20.0){
@@ -31,7 +31,7 @@ struct Settings: View {
                     .foregroundColor(Color.white)
                     .multilineTextAlignment(.center)
                     .lineLimit(nil)
-                    
+                
                 Spacer()
                     .frame(width: 180, height: 180, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
@@ -46,16 +46,16 @@ struct Settings: View {
                     Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
                         
                     }
-
+                    
                     
                     
                 }.padding(.horizontal, 75.0)
-
                 
-
-
-
-
+                
+                
+                
+                
+                
                 HStack {
                     Text("Sound")
                         .font(.callout)
@@ -63,7 +63,7 @@ struct Settings: View {
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.leading)
                         .frame(width: 200.0)
-
+                    
                     Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
                         
                     }
@@ -71,32 +71,32 @@ struct Settings: View {
                     
                 }
                 .padding(.horizontal, 75.0)
-            
+                
                 HStack {
-
-
+                    
+                    
                 }
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
             .listStyle(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=List Style@*/DefaultListStyle()/*@END_MENU_TOKEN@*/)
             
             
             
-        
+            
         }
         
         
         //Ende ZStack
-    
-       
+        
+        
     }
 }
 

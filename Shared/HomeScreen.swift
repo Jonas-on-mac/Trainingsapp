@@ -22,24 +22,24 @@ struct HomeScreen: View {
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
                 ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
-            
-                    VStack{
-                        
+                
+                VStack{
+                    
                     //Start ÜBERSCHRIFT
-                        Text("Willkommen bei deinem Trainings Coach")
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color.white)
-                            .multilineTextAlignment(.center)
-                Spacer()
-                    .frame(width: 125, height: 125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        
-                        start()
-                        
-                        change()
-                        
-                        settings()
-                    }
+                    Text("Willkommen bei deinem Trainings Coach")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                        .frame(width: 125, height: 125, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                    start()
+                    
+                    change()
+                    
+                    settings()
+                }
             }
         }
     }
@@ -63,7 +63,7 @@ struct start : View{
             //Ende Button Start Training
         }
         .sheet(isPresented: $start, content: {(ContentView() )})
-   
+        
         
     }
 }
@@ -86,7 +86,7 @@ struct change : View{
             //Ende Button Start Training
         }
         .sheet(isPresented: $change, content: {(ChangeTraining() )})
-   
+        
         
     }
 }
@@ -109,7 +109,7 @@ struct settings : View{
             //Ende Button Start Training
         }
         .sheet(isPresented: $settings, content: {(Settings() )})
-   
+        
         
     }
 }

@@ -9,13 +9,17 @@ import SwiftUI
 import UIKit
 
 
+
 struct ContentView: View {
     
+    @State var count: Int = 0
+    @State var abc = 4
+   
     
     
     var body: some View {
         
-        NavigationView{
+        //NavigationView{
             
             ZStack {  //HINTERGRUND
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
@@ -36,28 +40,36 @@ struct ContentView: View {
                     check()
                     check()
                     
-                    // abfrage für das erledigen aller Übungen
+                    
                     
                     
                     
                 }//Ende VStack
+                
             }//Ende ZStack
-        }
+            
+        
+    }
+    private func Anzahl(){
+       
+        
     }
 }
+
 
 
 // Button Funktion für das erledigen einer Übung
 struct check : View{
     
     @State var checkbox = false
-    @State public var count = 0
+    @State var checked = 0
     
     var body: some View{
         // Button setzt checkbox auf true oder false
         Button(action: {
             
             self.checkbox.toggle()
+            self.checkcounter()
         })
         {
             //tru oder false steuert das Ändern des Images
@@ -66,19 +78,21 @@ struct check : View{
                 .imageScale(checkbox ? .large : .small)
                 .foregroundColor(.black)
                 .padding()
-            
-            
-            
+            Text("\(checked)")
         }
         .animation(.easeInOut)
         .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
         
-        if(checkbox == true){
-            //count auf 1 setzen
-        }
     }
+        private func checkcounter(){
+            if checkbox == true {
+                checked = checked+1
+            }else {checked = 0
+            }
     
+    }
 }
+
 
 
 
