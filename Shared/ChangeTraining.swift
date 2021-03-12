@@ -38,9 +38,15 @@ struct ChangeTraining: View{
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
+                        .padding(.top, -100.0)
                     
+                        VStack{//Start VSTACK2
                     
-                    HStack{
+                            
+                            
+                            
+                          //ADD BUTTONS
+                        HStack{//START HSTACK 1
                         
                         
                         // Userinput feld
@@ -50,6 +56,8 @@ struct ChangeTraining: View{
                         TextField("Add Rep...",text: $newrepeat)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding(.leading, 25.0)
+                            .foregroundColor(.pink)
+                            .moveDisabled(true)
                         //funktion des plusbuttons
                         Button(action:  {
                             guard !self.newtraining.isEmpty else {return}
@@ -66,37 +74,89 @@ struct ChangeTraining: View{
                                 .foregroundColor(.black)
                             
                         }
-                    }.padding()
+                    }
+                .padding() //ENDE HSTACK 1
                     
-                    //Liste die die übungen darstellt
-                    ZStack{
-                        HStack{
-                            List {
-                                ForEach(alltraining) {Training in
-                                    Text(Training.train)
-                                    
-                                }
-                            }
                             
+                            
+                            
+                            
+                    
+                            //Liste die die übungen darstellt
                             // Liste für wiederholungen
                             List {
                                 ForEach(alltraining) {Training in
-                                    Text(Training.rep)
-                                    Text("\(Anzahl)")
+                                    HStack{
+                                        VStack{
+                                            Text(Training.train)
+                                        }
+                                        .frame(width: 175.0)
+                                        VStack{
+                                            Text(Training.rep)
+                                        }
+                                        .frame(width: 175.0)
+                                        
+                                        
+                                    }
                                     
-                                }.onDelete(perform: deletetraining) // aufruf delete func
-                                
-                                
-                            }
+                                   // Text("\(Anzahl)")
+                                        
+                                }.onDelete(perform: deletetraining)
+                                // aufruf delete func
                         }
                     }
+                }.background(Color.white)//Ende VSTACK2
+                    
+                    
+                    
+                    
+                    //TIMER ÄNDERN
+        VStack{
+            HStack{
+                VStack{
+                    Text("Montag")
+                    checkDay()
+                }.frame(width: 50.0)
+                VStack{
+                    Text("Dienstag")
+                    checkDay()
+                }.frame(width: 50.0)
+                VStack{
+                    Text("Mittwoch")
+                    checkDay()
+                }.frame(width: 50.0)
+                }
+                    HStack{
+                VStack{
+                    Text("Donnerstag")
+                    checkDay()
+                }.frame(width: 50.0)
+                VStack{
+                    Text("Freitag")
+                    checkDay()
+                }.frame(width: 50.0)
+                VStack{
+                    Text("Samstag")
+                    checkDay()
+                }
+                .frame(width: 50.0)
+                VStack{
+                    Text("Sonntag")
+                    checkDay()
                 }
             }
+        }.padding(.bottom, -350.0).frame(width: 16.0)
+                    
+
+                    
+                }//Ende VSTACK1
+            }.onAppear(perform: loadtraining)
             
             
             
             //Beim aufruf der app werden die training geladen (aufruf der loadtraining funktion)
-        }.onAppear(perform: loadtraining)
+   
+        
     }
     
     private func anzahl(){
@@ -136,6 +196,28 @@ struct Training: Codable, Identifiable {
     
     let count: Int
     
+}
+
+
+
+struct checkDay : View{
+    @State var checkbox = false
+    
+    var body: some View{
+        // Button setzt checkbox auf true oder false
+        Button(action: {self.checkbox.toggle()})
+        {
+            //tru oder false steuert das Ändern des Images
+            Image(systemName: checkbox ? "checkmark.square.fill" : "square")
+                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .imageScale(checkbox ? .large : .small)
+                .foregroundColor(.black)
+                .padding()
+        }
+        .animation(.easeInOut)
+        .rotationEffect(checkbox ? Angle (degrees: 15) : .zero)
+        
+    }
 }
 
 
