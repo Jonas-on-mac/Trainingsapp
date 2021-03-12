@@ -24,62 +24,68 @@ struct ChangeTraining: View{
         
         NavigationView{
             
-            ZStack{
-                
+            ZStack{//START ZSTACK0
+                VStack{
                 //HINTERGRUND
                 LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple
                 ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
                 
                 VStack{
-                    
+                    VStack{
                     Text("Trainingsplan")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
-                        .padding(.top, -100.0)
-                    
+                        
+                    }.padding(.top, -250.0)
                         VStack{//Start VSTACK2
                     
-                            
+                            VStack{//START VSTACK UI
                             
                             
                           //ADD BUTTONS
                         HStack{//START HSTACK 1
                         
                         
-                        // Userinput feld
-                        TextField("Add Training...",text: $newtraining)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    // Userinput feld
+                                    TextField("Add Training...",text: $newtraining)
+                                        
+                                        .foregroundColor(.blue)
+                                       .border(Color.blue)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .keyboardType(/*@START_MENU_TOKEN@*/.default/*@END_MENU_TOKEN@*/)
                         
-                        TextField("Add Rep...",text: $newrepeat)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.leading, 25.0)
-                            .foregroundColor(.pink)
-                            .moveDisabled(true)
-                        //funktion des plusbuttons
-                        Button(action:  {
-                            guard !self.newtraining.isEmpty else {return}
-                            self.alltraining.append(Training(train: self.newtraining, rep: self.newrepeat, count: self.Anzahl))
+                                    TextField("Add Rep...",text: $newrepeat)
+                                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                                        .foregroundColor(.blue)
+                                        .border(Color.blue)
+                                        .padding(.leading, 25.0)
+                                        .keyboardType(/*@START_MENU_TOKEN@*/.numberPad/*@END_MENU_TOKEN@*/)
+
                             
-                            self.newrepeat = ""
-                            self.newtraining = ""
-                            self.anzahl()//Funktion
-                            self.savetraining()//aufruf save func
-                            
-                        })  {
-                            //dratsellung des pluss Buttons
-                            Image(systemName: "plus")
-                                .foregroundColor(.black)
-                            
+                                    //funktion des plusbuttons
+                                    Button(action:  {
+                                        guard !self.newtraining.isEmpty else {return}
+                                        self.alltraining.append(Training(train: self.newtraining, rep:self.newrepeat, count: self.Anzahl))
+                                        self.newrepeat = ""
+                                        self.newtraining = ""
+                                        self.anzahl()//Funktion
+                                        self.savetraining()//aufruf save func
+                                    })  {
+                                        //dratsellung des pluss Buttons
+                                        Image(systemName: "plus")
+                                            .foregroundColor(.black)
+                                        }
                         }
-                    }
-                .padding() //ENDE HSTACK 1
-                    
+                        .padding() //ENDE HSTACK 1
+                        .background(Color.white)
+            }.padding(.top, -200.0)//ENDE VSTACK UI
+            
+            
                             
-                            
-                            
+                            VStack{//START VSTACK List
                             
                     
                             //Liste die die übungen darstellt
@@ -104,54 +110,59 @@ struct ChangeTraining: View{
                                 }.onDelete(perform: deletetraining)
                                 // aufruf delete func
                         }
+                            }.padding(.top, -150.0)//ENDE VSTACK Liste
                     }
-                }.background(Color.white)//Ende VSTACK2
+                }//Ende VSTACK2
                     
                     
                     
                     
-                    //TIMER ÄNDERN
-        VStack{
+        //TIMER ÄNDERN
+                    VStack(spacing: -25.0){
             HStack{
-                VStack{
+                VStack(spacing: -30.0){
                     Text("Montag")
                     checkDay()
-                }.frame(width: 50.0)
-                VStack{
+                }.frame(width: 75.0)
+                VStack(spacing: -30.0){
                     Text("Dienstag")
                     checkDay()
-                }.frame(width: 50.0)
-                VStack{
+                }.frame(width: 75.0)
+                VStack(spacing: -30.0){
                     Text("Mittwoch")
                     checkDay()
-                }.frame(width: 50.0)
+                }.frame(width: 75.0)
                 }
                     HStack{
-                VStack{
+                VStack(spacing: -30.0){
                     Text("Donnerstag")
                     checkDay()
-                }.frame(width: 50.0)
-                VStack{
+                }.frame(width: 95.0)
+                VStack(spacing: -30.0){
                     Text("Freitag")
                     checkDay()
-                }.frame(width: 50.0)
-                VStack{
+                }.frame(width: 75.0)
+                VStack(spacing: -30.0){
                     Text("Samstag")
                     checkDay()
                 }
-                .frame(width: 50.0)
-                VStack{
+                .frame(width: 75.0)
+                VStack(spacing: -30.0){
                     Text("Sonntag")
                     checkDay()
                 }
             }
-        }.padding(.bottom, -350.0).frame(width: 16.0)
+        }.border(Color.gray)
+                    .frame(width: 400.0, height: 220.0)
                     
-
+            }//ENDE ZSTACK0
                     
-                }//Ende VSTACK1
-            }.onAppear(perform: loadtraining)
-            
+            }
+            //Ende VSTACK1
+        
+        }.onAppear(perform: loadtraining)
+        
+        
             
             
             //Beim aufruf der app werden die training geladen (aufruf der loadtraining funktion)
