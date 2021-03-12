@@ -31,8 +31,8 @@ struct ChangeTraining: View{
                 ]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
                 
-                VStack{
-                    VStack{
+                VStack{//Start VSTACK0
+                    VStack{//START VSTACK1
                     Text("Trainingsplan")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
@@ -51,11 +51,12 @@ struct ChangeTraining: View{
                         
                                     // Userinput feld
                                     TextField("Add Training...",text: $newtraining)
-                                        
                                         .foregroundColor(.blue)
                                        .border(Color.blue)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
                                         .keyboardType(/*@START_MENU_TOKEN@*/.default/*@END_MENU_TOKEN@*/)
+
+                                        
                         
                                     TextField("Add Rep...",text: $newrepeat)
                                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -111,8 +112,8 @@ struct ChangeTraining: View{
                                 // aufruf delete func
                         }
                             }.padding(.top, -150.0)//ENDE VSTACK Liste
-                    }
-                }//Ende VSTACK2
+                        }.background(Color.white)//Ende VSTACK 2
+                }.background(Color.white)//Ende VSTACK0
                     
                     
                     
@@ -153,14 +154,16 @@ struct ChangeTraining: View{
                 }
             }
         }.border(Color.gray)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     .frame(width: 400.0, height: 220.0)
                     
-            }//ENDE ZSTACK0
+            }.background(Color.white)//ENDE ZSTACK0
                     
-            }
+            }.background(Color.white)
             //Ende VSTACK1
         
         }.onAppear(perform: loadtraining)
+        .background(Color.white)
         
         
             
